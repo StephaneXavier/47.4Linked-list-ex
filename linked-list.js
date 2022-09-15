@@ -56,30 +56,33 @@ class LinkedList {
 
     pop() {
         if (!this.head) return console.log('empty list')
+        const poppedVal = this.tail.val
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = this.tail.previous
+        }
 
-        const beforeLastNode = this.tail.previous;
-        const poppedNode = this.tail;
-        beforeLastNode.next = null;
-        this.tail = beforeLastNode;
         this.length -= 1
-        return poppedNode.val
+        return poppedVal
     }
 
     /** shift(): return & remove first item. */
 
     shift() {
         if (!this.head) return console.log('empty list')
+        const shiftedVal = this.head.val
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null
+        } else {
+            this.head = this.head.next
+            this.head.previous = null
+        }
 
-        const shiftedNode = this.head;
-        const secondNode = this.head.next;
-        console.log('*********************')
-        console.log(secondNode.previous)
-        secondNode.previous = null;
-        console.log(secondNode.previous)
-        console.log('*********************')
-        this.head = secondNode
         this.length -= 1
-        return shiftedNode.val
+        return shiftedVal
     }
 
     /** getAt(idx): get val at idx. */
@@ -113,6 +116,7 @@ class LinkedList {
     /** insertAt(idx, val): add node w/val before idx. */
 
     insertAt(idx, val) {
+        debugger
         if (idx >= this.length) return console.log('Idx out of bounds');
         if (idx === this.length - 1) return this.push(val)
         if (idx === 0) return this.unshift(val)
@@ -163,7 +167,7 @@ class LinkedList {
     /** average(): return an average of all values in the list */
 
     average() {
-        if(this.length === 0) return 0
+        if (this.length === 0) return 0
         let sum = 0;
         let currentNode = this.head
         for (let i = 0; i <= this.length - 1; i++) {

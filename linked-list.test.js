@@ -49,7 +49,7 @@ describe("unshift", function() {
 describe("pop", function() {
   it("removes node at end and decrements length", function() {
     let lst = new LinkedList([5, 10]);
-    debugger;
+  
     expect(lst.pop()).toBe(10);
     expect(lst.head.val).toBe(5);
     expect(lst.tail.val).toBe(5);
@@ -65,7 +65,7 @@ describe("pop", function() {
 describe("shift", function() {
   it("removes node at start and decrements length", function() {
     let lst = new LinkedList([5, 10]);
-    debugger;
+   
     expect(lst.shift()).toBe(5);
     expect(lst.tail.val).toBe(10);
     expect(lst.length).toBe(1);
@@ -110,6 +110,7 @@ describe("insertAt", function() {
     expect(lst.head.next.next.next.next.val).toBe(20);
 
     lst.insertAt(5, 25);
+    
     expect(lst.head.next.next.next.next.next.val).toBe(25);
     expect(lst.tail.val).toBe(25);
   });
