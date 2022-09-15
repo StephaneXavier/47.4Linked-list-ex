@@ -116,9 +116,9 @@ class LinkedList {
     /** insertAt(idx, val): add node w/val before idx. */
 
     insertAt(idx, val) {
-        debugger
-        if (idx >= this.length) return console.log('Idx out of bounds');
-        if (idx === this.length - 1) return this.push(val)
+        
+        if (idx > this.length) return console.log('Idx out of bounds');
+        if (idx === this.length) return this.push(val)
         if (idx === 0) return this.unshift(val)
         let count = 0;
         let nodeBefore = null;
